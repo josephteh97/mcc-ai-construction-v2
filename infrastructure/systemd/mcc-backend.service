@@ -1,0 +1,14 @@
+[Unit]
+Description=MCC AI Backend Service
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/mcc-ai-concrete-structure-of-construction/backend
+Environment="PATH=/home/ubuntu/miniconda3/envs/mcc-ai-construction/bin:/usr/bin"
+ExecStart=/home/ubuntu/miniconda3/envs/mcc-ai-construction/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=MCC AI Frontend Service
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/mcc-ai-concrete-structure-of-construction/frontend
+ExecStart=/usr/bin/npm run dev -- --host
+# For production, you should use 'npm run build' and serve via Nginx, 
+# but this service runs the dev server as per current setup.
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
